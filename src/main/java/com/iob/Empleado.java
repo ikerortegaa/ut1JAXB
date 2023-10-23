@@ -5,11 +5,15 @@ public class Empleado {
     private String nombre;
     private double salario;
 
+    public Empleado() {
+    }
+
     public Empleado(int id, String nombre, double salario) {
         this.id = id;
         this.nombre = nombre;
         this.salario = salario;
     }
+
 
 
     public int getId() {
