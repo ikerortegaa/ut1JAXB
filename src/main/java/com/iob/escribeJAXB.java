@@ -3,6 +3,8 @@ package com.iob;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +23,8 @@ public class escribeJAXB
 
         Empleados emps = new Empleados(empleados);
 
+        //Empleados emps = new Empleados(empleados, System.out);
+
         // cargar empleados a la lista
         try {
             JAXBContext contexto = JAXBContext.newInstance(
@@ -28,8 +32,9 @@ public class escribeJAXB
             Marshaller marshaller = contexto.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,
                     Boolean.TRUE);
-            marshaller.marshal(emps, System.out);
-        } catch (JAXBException e) {
+            //marshaller.marshal(emps, System.out);
+            marshaller.marshal(emps,new FileWriter("escrituraXml.xml"));
+        } catch (JAXBException | IOException e) {
             throw new RuntimeException(e);
         }
 

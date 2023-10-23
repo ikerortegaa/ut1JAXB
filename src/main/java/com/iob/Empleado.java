@@ -11,6 +11,7 @@ public class Empleado {
         this.salario = salario;
     }
 
+
     public int getId() {
         return id;
     }
